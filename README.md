@@ -7,6 +7,11 @@ file.
 Records present in the first file and not the second file will not be displayed.
 
     Usage: marcdiff [OPTIONS] FILE1 FILE2 [OUTFILE]
-
+    
+      Compare 2 files of MARC records. file2 must be a subset of the records in
+      file1, with existing records in the same order in both files. If OUTFILE
+      is not given, output will be written to 'marcdiff_output.html' in the
+      working directory.
+    
     Options:
       --help  Show this message and exit.
