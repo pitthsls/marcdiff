@@ -11,5 +11,16 @@ output will be written to 'marcdiff_output.html' in the working directory."""
 @click.argument("file1", type=click.Path())
 @click.argument("file2", type=click.Path())
 @click.argument("outfile", type=click.Path(), default="marcdiff_output.html")
-def run(file1, file2, outfile):
-    marcdiff.core.html_compare(file1, file2, outfile)
+@click.option(
+    "--include_missing",
+    is_flag=True,
+    default=False,
+    help="include records missing from file2 in output",
+)
+@click.option(
+    "--brief/--no-brief",
+    default=True,
+    help="only show changed and nearby lines, not entire records (default)",
+)
+def run(file1, file2, outfile, include_missing, brief):
+    marcdiff.core.html_compare(file1, file2, outfile, include_missing, brief)
