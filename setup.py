@@ -12,6 +12,7 @@ setup(
         "click",
         "pymarc",
     ],
+    extras_require={"dev":["pytest", "flake8"]},
     entry_points={
         "console_scripts": [
             'marcdiff = marcdiff.cli:run'
